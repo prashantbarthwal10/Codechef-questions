@@ -1,23 +1,34 @@
+
 #include <bits/stdc++.h>
+//Beware: Question is framed badly.
 using namespace std;
 void cal(long long int a)
 {
-        long long int num=0,den=1;
-
-        for(long long int i=1; i<=a; i++)
+        long long int num=1,den=2;
+        if(a%2==0)
         {
-                den*=2;
-        }
+                num=1; den=4;
+                for(int i=2; i<a; i=i+2)
+                {
+                        num=num+den;
+                        den=den*4;
+                }
 
-        for(long long int i=0; i<a; i=i+2)
+        }
+        else
         {
-                num=num+pow(2,i);
+                num=1; den=2;
+                for(int i=1; i<a; i=i+2)
+                {
+                        num=num+den;
+                        den=den*4;
+                }
 
         }
+        long long int gcd=__gcd(den,num);
+        num=num/gcd;
+        den=den/gcd;
         cout<<num<<" "<<den<<" ";
-
-
-
 }
 int main()
 {
