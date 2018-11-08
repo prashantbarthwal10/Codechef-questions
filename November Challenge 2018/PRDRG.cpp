@@ -1,22 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
-long long int cal(long long int a)
+void cal(long long int a)
 {
-        long long int sum=2;
-        if(a==1)
-                sum=2;
-        else
+        long long int num=0,den=1;
+
+        for(long long int i=1; i<=a; i++)
         {
-                for(long long int i=2; i<=a; i++)
-                {
-                        if(i%2==0)
-                        {
-                                sum*=2;
-                        }
-                }
+                den*=2;
+        }
+
+        for(long long int i=0; i<a; i=i+2)
+        {
+                num=num+pow(2,i);
 
         }
-        return sum;
+        cout<<num<<" "<<den<<" ";
+
+
+
 }
 int main()
 {
@@ -26,7 +27,7 @@ int main()
         while(size--)
         {
                 cin>>a;
-                cout<<1<<" "<<cal(a)<<" ";
+                cal(a);
 
         }
 
